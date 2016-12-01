@@ -1,0 +1,64 @@
+{% extends 'layout/layout1.html' %}
+{% load staticfiles %}
+
+{% block title %}Biodiv_IO{% endblock %}
+
+{% block content %}
+
+<style>
+#overridebootstrap ul, ol {
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0; 
+	margin-bottom: 40px;
+}
+#zoo, #fito ul, ol { 
+	list-style-type: none;
+	margin: 0; 
+	padding: 0; 
+	margin-bottom: 80px;
+}
+#overridebootstrap li { 
+	float: left;
+	margin:5
+} 
+</style>
+
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<div id = "overridebootstrap">
+		<h3> Busca Customizada </h3>
+		<hr></hr>
+		<form method = "POST" class = "AddQueryForm">{% csrf_token %}
+			<h4> Selecione as categorias a serem mostradas no resultado da busca </h4><hr></hr>
+			<div id = "amostra">
+				{{amostra_fields}}
+			</div>
+			<hr></hr>
+			<div id = "zoo">
+				{{zoo_fields}}
+			</div>
+			<hr></hr>
+			<div id = "fito">
+				{{fito_fields}}
+			</div>
+			<hr></hr>
+			<div id = "datas">
+				<h4> Selecione o Periodo </h4><h5> (Opcional) </h5>
+				{{date_form.as_table}}
+			</div>
+			<hr></hr>
+			<h4> Selecione uma lagoa e/ou taxa específica </h4><h5> (Opcional) </h5>
+			<div id = "busca_individual">
+				{{specific_fields.as_p}}
+			</div>
+			<hr></hr>
+			<button type="submit" class="save btn btn-default">Pesquisar</button>
+		</form>
+	</div>
+	
+	<form action="http://localhost:8000/Biodiv">
+    		<input type="submit" value="Pagina Inicial" />
+	</form>
+		
+{% endblock %}

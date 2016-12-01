@@ -1,0 +1,11 @@
+{% extends 'layout/layout1.html' %}
+
+{% block title %}Biodiv_IO{% endblock %}
+
+{% block content %}
+
+<img src= "http://homepages.dcc.ufmg.br/~kaytoue/images/dcc.jpg" />
+
+<p> Please Login </p>
+
+{% endblock %}

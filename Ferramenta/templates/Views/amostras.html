@@ -1,0 +1,45 @@
+{% extends 'layout/layout1.html' %}
+{% load staticfiles %}
+
+{% block title %}Biodiv_IO{% endblock %}
+
+{% block content %}
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'css/amostras.css' %}">
+	
+	<div>
+		<h3> Nova Amostra </h3>
+		<form method = "POST" class = "AddAmostraForm">{% csrf_token %}
+			{{form.as_table}}
+			<p><button type="submit" class="save btn btn-default">Guardar</button></p>
+		</form>
+	
+	<table>
+		<tr>
+			<th>ID</th>
+	    	<th>Lagoa</th>
+	    	<th>Profundidade</th>
+	    	<th>Dia</th>
+	    	<th>Mes</th>
+	    	<th>Ano</th>
+	    	<th>Responsavel</th>
+		</tr>
+	
+		{% for amostra in amostras %}
+			<tr>
+				<td>{{amostra.amostra_id}}</td> 
+				<td>{{amostra.lagoa}}</td>
+				<td>{{amostra.profundidade}}</td>
+				<td>{{amostra.dia}}</td> 
+				<td>{{amostra.mes}}</td> 
+				<td>{{amostra.ano}}</td>
+				<td>{{amostra.responsavel}}</td>
+			</tr>
+		{% endfor %}
+	</table>
+	
+	<form action="http://localhost:8000/Biodiv">
+    		<input type="submit" value="Pagina Inicial" />
+	</form>
+{% endblock %}

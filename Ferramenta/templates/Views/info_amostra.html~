@@ -1,0 +1,20 @@
+{% extends 'layout/layout1.html' %}
+{% load staticfiles %}
+
+{% block title %}Biodiv_IO{% endblock %}
+
+{% block content %}
+	<link rel="stylesheet" href="{% static 'css/amostras.css' %}">
+	
+	<div>
+		<h3> Add Info </h3>
+		<form method = "POST" class = "AddInfoFormm">{% csrf_token %}
+			{{form.as_table}}
+			<p><button type="submit" class="save btn btn-default">Guardar</button></p>
+		</form>
+	</div>
+	<form action="http://localhost:8000/Biodiv">
+    	<input type="submit" value="Pagina Inicial" />
+	</form>
+		
+{% endblock %}

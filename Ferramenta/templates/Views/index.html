@@ -1,0 +1,29 @@
+{% extends 'layout/layout1.html' %}
+{% load staticfiles %}
+
+{% block title %}Biodiv_IO{% endblock %}
+
+{% block content %}
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+	<div id = "logo"><img src= "http://homepages.dcc.ufmg.br/~kaytoue/images/dcc.jpg" /></div>
+	
+    {% if user.is_authenticated %}
+    	<p><h3>Bom dia {{ user.username }}</h3></p>
+    	<ul>
+			<li><a href="{% url 'amostra' %}">Add Amostras</a></li>
+			<li><a href="{% url 'fito' %}">Add Fito</a></li>
+			<li><a href="{% url 'zoo' %}">Add Zoo</a></li>
+			<li><a href="{% url 'infoamostra' %}">Add Info Amostra</a></li>
+			<li><a href="{% url 'query' %}">Pesquisar Banco</a></li>
+    		<li><a href="{% url 'logout' %}">logout</a></li>
+    	<ul>
+    {% else %}
+		<p><h3>Conecte-se para continuar</h3></p>
+		<ul>
+    		<li><a href="{% url 'login' %}">login</a></li>
+    	</ul>
+    {% endif %}
+
+{% endblock %}

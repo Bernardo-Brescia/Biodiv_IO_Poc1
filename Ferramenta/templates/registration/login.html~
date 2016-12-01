@@ -1,0 +1,15 @@
+{% extends 'layout/layout1.html' %}
+
+{% block title %}Login{% endblock %}
+{% block extrastyle %}<link rel="stylesheet" type="text/css" href="{% "/dashboard.css" %}" />{% endblock %}
+
+{% block content %}
+	<img src= "http://homepages.dcc.ufmg.br/~kaytoue/images/dcc.jpg" />
+	<h1>Login</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+{% endblock %}
+

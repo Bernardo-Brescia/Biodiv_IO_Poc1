@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}Login{% endblock %}</title>
+</head>
+<body>
+	<header>
+		<link rel="stylesheet" href="{% static 'css/login.css' %}">
+		<h2>Biodiv_IO</h2>
+	</header>
+	<hr>
+	<main>
+	    {% block content %}
+	    {% endblock %}
+	</main>
+	<hr>
+	<footer>
+		{% block footer %}<div id="footer"></div>{% endblock %}
+	</footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+from django.conf.urls import url
+from django.contrib import admin
+from django.contrib.auth import views as auth_views
+from . import views
+
+admin.site.site_header = 'Biodiv_IO Admnistration'
+
+urlpatterns = [
+    url(r'^$', views.index, name='index'),
+	url(r'^amostra/$', views.Amostra_list, name='amostra'),
+	url(r'^fito/$', views.Fito_list, name='fito'),
+	url(r'^zoo/$', views.Zoo_list, name='zoo'),
+	url(r'^infoamostra/$', views.Info_Amostra_list, name='infoamostra'),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^query/$', views.Query_Fields, name='query'),
+    url(r'^admin/', admin.site.urls),
+]
